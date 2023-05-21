@@ -48,7 +48,7 @@ function HomePage() {
       localStorage.setItem("city", city);
 
       axios
-        .get(`http://localhost:3006/weather/${city}`)
+        .get(`https://locrian-yummy-record.glitch.me/weather/${city}`)
         .then((e) => {
           console.log(e.data.data);
           setList(e.data.data);
