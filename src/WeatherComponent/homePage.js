@@ -3,7 +3,7 @@ import axios from "axios";
 // import Button from 'react-bootstrap/Button';
 // import Card from 'react-bootstrap/Card';
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Row, Col, Form, Button, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTint,
@@ -20,7 +20,6 @@ function HomePage() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [list, setList] = useState();
-  const [News, setNews] = useState([]);
   const [date, setDate] = useState();
   const [time, setTime] = useState("");
   const [inputbox, setInputbox] = useState("");
@@ -52,7 +51,7 @@ function HomePage() {
         .then((e) => {
           console.log(e.data.data);
           setList(e.data.data);
-          if(e.data.message=="Request failed with status code 404"){
+          if(e.data.message==="Request failed with status code 404"){
             alert("no city found")
           }
         })
@@ -127,7 +126,7 @@ function HomePage() {
                     height: "40px",
                     borderRadius: "50%",
                     overflow: "hidden",
-                  }}
+                  }} alt="not found"
                 />
                 <h2>{city}</h2>
               </div>
@@ -151,7 +150,7 @@ function HomePage() {
                     height: "100px",
                     borderRadius: "50%",
                     overflow: "hidden",
-                  }}
+                  }} alt="not found"
                 />
                 <h1 className="temp">{list ? list.temp : "Loading..."}</h1>
               </div>
